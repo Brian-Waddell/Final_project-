@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all comments
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new comment
+    </h2>
+
+    <form action="/insert_comment" method="post">
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body">
+      </div>
+
+      <div>
+        <label for="likes_box">
+          Likes
+        </label>
+
+        <input type="text" id="likes_box" name="query_likes">
+      </div>
+
+      <div>
+        <label for="dislikes_box">
+          Dislikes
+        </label>
+
+        <input type="text" id="dislikes_box" name="query_dislikes">
+      </div>
+
+      <div>
+        <label for="questions_id_box">
+          Questions
+        </label>
+
+        <input type="text" id="questions_id_box" name="query_questions_id">
+      </div>
+
+      <div>
+        <label for="participant_id_box">
+          Participant
+        </label>
+
+        <input type="text" id="participant_id_box" name="query_participant_id">
+      </div>
+
+      <button>
+        Create comment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Body
+        </th>
+
+        <th>
+          Likes
+        </th>
+
+        <th>
+          Dislikes
+        </th>
+
+        <th>
+          Questions
+        </th>
+
+        <th>
+          Participant
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_comments.each do |a_comment| %>
+      <tr>
+        <td>
+          <%= a_comment.id %>
+        </td>
+
+        <td>
+          <%= a_comment.body %>
+        </td>
+
+        <td>
+          <%= a_comment.likes %>
+        </td>
+
+        <td>
+          <%= a_comment.dislikes %>
+        </td>
+
+        <td>
+          <%= a_comment.questions_id %>
+        </td>
+
+        <td>
+          <%= a_comment.participant_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_comment.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_comment.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/comments/<%= a_comment.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Comment #<%= @the_comment.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/comments">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_comment/<%= @the_comment.id %>">
+          Delete comment
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_comment.body %>
+      </dd>
+
+      <dt>
+        Likes
+      </dt>
+      <dd>
+        <%= @the_comment.likes %>
+      </dd>
+
+      <dt>
+        Dislikes
+      </dt>
+      <dd>
+        <%= @the_comment.dislikes %>
+      </dd>
+
+      <dt>
+        Questions
+      </dt>
+      <dd>
+        <%= @the_comment.questions_id %>
+      </dd>
+
+      <dt>
+        Participant
+      </dt>
+      <dd>
+        <%= @the_comment.participant_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comment.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_comment.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit comment
+    </h2>
+
+    <form action="/modify_comment/<%= @the_comment.id %>"  method="post" >
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <input type="text" id="body_box" name="query_body" value="<%= @the_comment.body %>">
+      </div>
+
+      <div>
+        <label for="likes_box">
+          Likes
+        </label>
+
+        <input type="text" id="likes_box" name="query_likes" value="<%= @the_comment.likes %>">
+      </div>
+
+      <div>
+        <label for="dislikes_box">
+          Dislikes
+        </label>
+
+        <input type="text" id="dislikes_box" name="query_dislikes" value="<%= @the_comment.dislikes %>">
+      </div>
+
+      <div>
+        <label for="questions_id_box">
+          Questions
+        </label>
+
+        <input type="text" id="questions_id_box" name="query_questions_id" value="<%= @the_comment.questions_id %>">
+      </div>
+
+      <div>
+        <label for="participant_id_box">
+          Participant
+        </label>
+
+        <input type="text" id="participant_id_box" name="query_participant_id" value="<%= @the_comment.participant_id %>">
+      </div>
+
+      <button>
+        Update comment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
