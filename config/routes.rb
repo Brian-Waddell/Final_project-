@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the User book resource:
+
+  # CREATE
+  post("/insert_user_book", { :controller => "user_books", :action => "create" })
+          
+  # READ
+  get("/user_books", { :controller => "user_books", :action => "index" })
+  
+  get("/user_books/:path_id", { :controller => "user_books", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_user_book/:path_id", { :controller => "user_books", :action => "update" })
+  
+  # DELETE
+  get("/delete_user_book/:path_id", { :controller => "user_books", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Comment resource:
 
   # CREATE
