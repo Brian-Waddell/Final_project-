@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all books
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new book
+    </h2>
+
+    <form action="/insert_book" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="query_author">
+      </div>
+
+      <div>
+        <label for="publish_date_box">
+          Publish date
+        </label>
+
+        <input type="text" id="publish_date_box" name="query_publish_date">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="group_session_id_box">
+          Group session
+        </label>
+
+        <input type="text" id="group_session_id_box" name="query_group_session_id">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <button>
+        Create book
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Publish date
+        </th>
+
+        <th>
+          Rating
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Group session
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_books.each do |a_book| %>
+      <tr>
+        <td>
+          <%= a_book.id %>
+        </td>
+
+        <td>
+          <%= a_book.title %>
+        </td>
+
+        <td>
+          <%= a_book.author %>
+        </td>
+
+        <td>
+          <%= a_book.publish_date %>
+        </td>
+
+        <td>
+          <%= a_book.rating %>
+        </td>
+
+        <td>
+          <%= a_book.user_id %>
+        </td>
+
+        <td>
+          <%= a_book.group_session_id %>
+        </td>
+
+        <td>
+          <%= a_book.photo %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_book.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_book.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/books/<%= a_book.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

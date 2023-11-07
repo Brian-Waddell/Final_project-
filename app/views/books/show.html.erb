@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Book #<%= @the_book.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/books">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_book/<%= @the_book.id %>">
+          Delete book
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_book.title %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @the_book.author %>
+      </dd>
+
+      <dt>
+        Publish date
+      </dt>
+      <dd>
+        <%= @the_book.publish_date %>
+      </dd>
+
+      <dt>
+        Rating
+      </dt>
+      <dd>
+        <%= @the_book.rating %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_book.user_id %>
+      </dd>
+
+      <dt>
+        Group session
+      </dt>
+      <dd>
+        <%= @the_book.group_session_id %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_book.photo %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit book
+    </h2>
+
+    <form action="/modify_book/<%= @the_book.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
+      </div>
+
+      <div>
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="query_author" value="<%= @the_book.author %>">
+      </div>
+
+      <div>
+        <label for="publish_date_box">
+          Publish date
+        </label>
+
+        <input type="text" id="publish_date_box" name="query_publish_date" value="<%= @the_book.publish_date %>">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating" value="<%= @the_book.rating %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_book.user_id %>">
+      </div>
+
+      <div>
+        <label for="group_session_id_box">
+          Group session
+        </label>
+
+        <input type="text" id="group_session_id_box" name="query_group_session_id" value="<%= @the_book.group_session_id %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_book.photo %>">
+      </div>
+
+      <button>
+        Update book
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
