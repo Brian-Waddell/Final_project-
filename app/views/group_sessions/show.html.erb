@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Group session #<%= @the_group_session.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/group_sessions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_group_session/<%= @the_group_session.id %>">
+          Delete group session
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_group_session.owner_id %>
+      </dd>
+
+      <dt>
+        Book
+      </dt>
+      <dd>
+        <%= @the_group_session.book_id %>
+      </dd>
+
+      <dt>
+        Name of group
+      </dt>
+      <dd>
+        <%= @the_group_session.name_of_group %>
+      </dd>
+
+      <dt>
+        List of members
+      </dt>
+      <dd>
+        <%= @the_group_session.list_of_members %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_group_session.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_group_session.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit group session
+    </h2>
+
+    <form action="/modify_group_session/<%= @the_group_session.id %>"  method="post" >
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_group_session.owner_id %>">
+      </div>
+
+      <div>
+        <label for="book_id_box">
+          Book
+        </label>
+
+        <input type="text" id="book_id_box" name="query_book_id" value="<%= @the_group_session.book_id %>">
+      </div>
+
+      <div>
+        <label for="name_of_group_box">
+          Name of group
+        </label>
+
+        <input type="text" id="name_of_group_box" name="query_name_of_group" value="<%= @the_group_session.name_of_group %>">
+      </div>
+
+      <div>
+        <label for="list_of_members_box">
+          List of members
+        </label>
+
+        <input type="text" id="list_of_members_box" name="query_list_of_members" value="<%= @the_group_session.list_of_members %>">
+      </div>
+
+      <button>
+        Update group session
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

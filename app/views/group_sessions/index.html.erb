@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all group sessions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new group session
+    </h2>
+
+    <form action="/insert_group_session" method="post">
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="book_id_box">
+          Book
+        </label>
+
+        <input type="text" id="book_id_box" name="query_book_id">
+      </div>
+
+      <div>
+        <label for="name_of_group_box">
+          Name of group
+        </label>
+
+        <input type="text" id="name_of_group_box" name="query_name_of_group">
+      </div>
+
+      <div>
+        <label for="list_of_members_box">
+          List of members
+        </label>
+
+        <input type="text" id="list_of_members_box" name="query_list_of_members">
+      </div>
+
+      <button>
+        Create group session
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Book
+        </th>
+
+        <th>
+          Name of group
+        </th>
+
+        <th>
+          List of members
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_group_sessions.each do |a_group_session| %>
+      <tr>
+        <td>
+          <%= a_group_session.id %>
+        </td>
+
+        <td>
+          <%= a_group_session.owner_id %>
+        </td>
+
+        <td>
+          <%= a_group_session.book_id %>
+        </td>
+
+        <td>
+          <%= a_group_session.name_of_group %>
+        </td>
+
+        <td>
+          <%= a_group_session.list_of_members %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_group_session.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_group_session.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/group_sessions/<%= a_group_session.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
