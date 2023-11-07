@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Session participant resource:
+
+  # CREATE
+  post("/insert_session_participant", { :controller => "session_participants", :action => "create" })
+          
+  # READ
+  get("/session_participants", { :controller => "session_participants", :action => "index" })
+  
+  get("/session_participants/:path_id", { :controller => "session_participants", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_session_participant/:path_id", { :controller => "session_participants", :action => "update" })
+  
+  # DELETE
+  get("/delete_session_participant/:path_id", { :controller => "session_participants", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User book resource:
 
   # CREATE

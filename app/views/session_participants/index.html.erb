@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all session participants
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new session participant
+    </h2>
+
+    <form action="/insert_session_participant" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="group_id_box">
+          Group
+        </label>
+
+        <input type="text" id="group_id_box" name="query_group_id">
+      </div>
+
+      <button>
+        Create session participant
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Group
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_session_participants.each do |a_session_participant| %>
+      <tr>
+        <td>
+          <%= a_session_participant.id %>
+        </td>
+
+        <td>
+          <%= a_session_participant.user_id %>
+        </td>
+
+        <td>
+          <%= a_session_participant.group_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_session_participant.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_session_participant.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/session_participants/<%= a_session_participant.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

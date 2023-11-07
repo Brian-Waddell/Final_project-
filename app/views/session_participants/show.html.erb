@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Session participant #<%= @the_session_participant.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/session_participants">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_session_participant/<%= @the_session_participant.id %>">
+          Delete session participant
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_session_participant.user_id %>
+      </dd>
+
+      <dt>
+        Group
+      </dt>
+      <dd>
+        <%= @the_session_participant.group_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_session_participant.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_session_participant.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit session participant
+    </h2>
+
+    <form action="/modify_session_participant/<%= @the_session_participant.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_session_participant.user_id %>">
+      </div>
+
+      <div>
+        <label for="group_id_box">
+          Group
+        </label>
+
+        <input type="text" id="group_id_box" name="query_group_id" value="<%= @the_session_participant.group_id %>">
+      </div>
+
+      <button>
+        Update session participant
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
